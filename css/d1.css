@@ -1,0 +1,91 @@
+body{
+    background-color: black;
+    color: wheat;
+    padding: 10px;
+} 
+body * {
+    margin: 0 auto;
+    display: block;
+}
+.main img{
+    width: 80%;
+    border-radius: 20px;
+}
+.main{
+    text-align: center;
+}
+.tob{
+    font-size: 35px;
+    list-style-type: circle;
+}
+.tob a{
+    text-decoration: none;
+    color: white;
+}
+.FE p{
+    text-align: justify;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.HTML h1{
+    font-size: 50px;
+    color: white;
+}
+.HTML img{
+    width: 70%%;
+    border-radius: 20px;
+}
+.HTML p{
+    font-size: 20px;
+    color: white;
+}
+.HTML span{
+    font-size: 30px;
+    text-align: justify;
+}
+.CSS h1{
+    font-size: 50px;
+    color: white;
+}
+.CSS img{
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+}
+.CSS p{
+    font-size: 20px;
+    color: white;
+}
+.JS h1{
+    font-size: 50px;
+    color: white;
+}
+.JS img{
+    width: 40%;
+    height: auto;
+    border-radius: 5px;
+}
+.JS p{
+    font-size: 20px;
+    color: white;
+}
+.hn{
+    display: flex;
+    padding: 20px;
+}
+.hn h1{
+    font-size: 50px;
+    color: white;
+}
+.hn p{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+.hn a{
+    text-align: center;
+    text-decoration: none;
+    color: cyan;
+    margin-top: 5px;
+}
+
