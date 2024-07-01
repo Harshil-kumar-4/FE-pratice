@@ -1,0 +1,299 @@
+body{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: space-around;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+#image {
+    z-index: 1000;
+    position: fixed;
+    top: 8px;
+    right: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+}
+@keyframes sfl{
+    form{
+        transform: translateX(-300px);
+    }
+    to{
+        transform: translate(0px);
+    }
+}
+.navbar{
+    animation: sfl 1s ease-in;
+    z-index: 1000;
+    left: 0;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #ffffff;
+    border-left: 0px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 2px;
+    height: 50px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.ul1 a{
+    text-decoration: none;
+    margin-left: 10px;
+    color: #ffffff;
+}
+.ul1{
+    display: flex;
+    list-style: none;
+}
+.profile{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    width: 1200px;
+    height: 450px;
+    padding: 20px;
+    align-items: center;
+}
+#mypic{
+    border-radius: 100%;
+    width: auto;
+    height: 400px;
+}
+.profile div span{
+    margin-left: 40px;
+    font-size: 30px;
+}
+.profile div p{
+    margin-top: -30px;
+    margin-left: 50px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.profile div h1{
+    margin-top: 0px;
+    font-size: 80px;
+    margin-left: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* projects */
+.p1{
+    width: 100%;
+    height: auto;
+    position: relative;
+    align-items: center;
+}
+.stream{
+    transition: all 0.5s ease;
+    filter: grayscale(80%);
+    transform: scale(1);
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    position: absolute;
+    left: 80px;
+}
+.stream:hover{
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+.p1 span{
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #ffffff;
+    color: white;
+    position: absolute;
+    margin-top: 45px;
+    right: -8px;
+    background-color: black;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: left;
+    width: 800px;
+    height: 100px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    
+}
+.p1 h3{
+    margin-left: 50px;
+}
+.p1 p{
+    margin-left: 50px;
+}
+
+.p2{
+    width: 100%;
+    height: auto;
+    position: relative;
+    align-items: center;
+}
+.snake{
+    transition: all 0.5s ease;
+    filter: grayscale(80%);
+    transform: scale(1);
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    position: absolute;
+    left: 80px;
+}
+.snake:hover{
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+.p2 span{
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #ffffff;
+    color: white;
+    position: absolute;
+    margin-top: 45px;
+    right: -8px;
+    background-color: black;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: left;
+    width: 800px;
+    height: 100px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    
+}
+.p2 h3{
+    margin-left: 50px;
+}
+.p2 p{
+    margin-left: 50px;
+}
+/* languages */
+.lang{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.py img{
+    width: 200px;
+    height: 200px;
+}
+.py{
+    backdrop-filter: blur(50px);
+    box-shadow: 0px 0px 10px #ffffff;
+    border-radius: 10px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    font-size: 20px;
+    padding: 10px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+}
+.ja{
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #ffffff;
+    border-radius: 10px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    font-size: 20px;
+    padding: 10px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+}
+.ja img{
+    width: 200px;
+    height: 200px;
+}
+.tech{
+    background-color: black;
+    box-shadow: 0px 0px 10px #ffffff;
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 65px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.tech a{
+    color: white;
+    transition: transform 300ms;
+}
+.tech a:hover{
+    transform: scale(1.3);
+    cursor: normal;
+    color: white;
+}
+.mail img{
+    margin-left: 30px;
+    width: 200px;
+    height: auto;
+}
+.tel img{
+    width: 250px;
+    height: auto;
+}
+.mail,.tel{
+    margin-left: 0px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    width: 70%;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transition: backfrop-filter 300ms ease-in;
+    transition: box-shadow 300ms ease-in;
+    transition: box-shadow 300ms ease-in;
+}
+.mail:hover{
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #ffffff;
+}
+.tel:hover{
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #ffffff;
+}
+.mail p{
+    margin-left: 50px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.tel p{
+    margin-left: 30px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.sm{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    height: 50px;
+    width: 400px;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+.sm a{
+    background: transparent;
+}
+.sm img{
+    transition: transform 300ms ease-in 10ms;
+    transition: box-shadow 100ms ease-in;
+}
+.sm img:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 40px 30px rgba(0, 0, 0, 0.4);
+}
+
