@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Header</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    }
+
+    .profile-header {
+        width: 100%;
+        height: auto;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: relative;
+        text-align: center;
+    }
+
+    .cover-photo {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .cover-photo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        bottom: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .profile-picture img {
+        width: 100%;
+        height: auto;
+    }
+
+    .user-info {
+        padding: 100px 20px 20px;
+        
+    }
+
+    .user-info h1 {
+        margin: 10px 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .user-info p {
+        margin: 5px 0;
+        color: #555;
+    }
+
+    </style>
+</head>
+<body>
+    <br><br>
+    <div class="profile-header">
+        <div class="cover-photo">
+            <img src="https://media.licdn.com/dms/image/D5616AQHeZLyAmzn4QA/profile-displaybackgroundimage-shrink_200_800/0/1692332175135?e=2147483647&v=beta&t=8zReRgHp24LmO1e63RdJ-Am_oNZqJQ98eYCJTz0NQJ0" alt="Cover Photo">
+        </div>
+        <div class="profile-picture">
+            <img src="https://img.freepik.com/premium-photo/profile-icon-white-background_941097-161394.jpg" alt="Profile Picture">
+        </div>
+        <div class="user-info">
+            <h1>John Doe</h1>
+            <p>Web Developer at XYZ Company, 7 years experience</p>
+            <p>San Francisco, CA</p>
+            <p>skilled at WEB designing and developind, figma and 3d modeling<br>MERN stack</p>
+        </div>
+    </div>
+</body>
+</html>

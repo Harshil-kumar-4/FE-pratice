@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        img{
+            width: 300px;
+        }
+        .categories {
+            width: 100%;
+            padding: 5px;
+            background-color: #bcbcbc;
+        }
+        .categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .categories li {
+            display: inline;
+            margin-right: 10px;
+        }
+        .block{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .product-list {
+            margin: 20px;
+        }
+        .product {
+            border: 2px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-title {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product-description {
+            font-size: 0.9em;
+            color: #555;
+            margin: 10px 0;
+        }
+        .product-link {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Online Store</h1>
+    </header>
+    
+    <section class="categories">
+        <h2>Product Categories</h2>
+        <ul>
+            <li><a href="#electronics">Electronics</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#cosmetics">Cosmetics</a></li>
+            <li><a href="#toys">Toys</a></li>
+        </ul>
+    </section>
+    
+    <section id="electronics" class="product-list">
+        <h2>Electronics</h2>
+        <div class="block">
+        <div class="product">
+            <img src="https://i.gadgets360cdn.com/large/oneplus_10_pro_case_renders_alibaba_website_1637651752247.jpg" alt="Smartphone">
+            <div class="product-title">Smartphone</div>
+            <div class="product-description">Latest model with advanced features.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://www.gdgtme.com/wp-content/uploads/2023/05/ASUS-Announces-Zenbook-S-13-OLED-1200x600.jpg" alt="Laptop">
+            <div class="product-title">Laptop</div>
+            <div class="product-description">High performance laptop for all your needs.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+        <div class="block">
+        <div class="product">
+            <img src="https://asset20.ckassets.com/blog/wp-content/uploads/sites/5/2024/06/soundcore-by-Anker-Q20i-Wireless-Bluetooth-Over-Ear-Headphones.jpg" alt="Headphones">
+            <div class="product-title">Headphones</div>
+            <div class="product-description">Noise-cancelling headphones.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://fdn.gsmarena.com/imgroot/news/22/11/huawei-watch-buds-kids-watch-5x-teasers/inline/-1200/gsmarena_002.jpg" alt="Smartwatch">
+            <div class="product-title">Smartwatch</div>
+            <div class="product-description">Keep track of your fitness and notifications.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+    </section>
+    
+    <section id="books" class="product-list">
+        <h2>Books</h2>
+        <div class="block">
+        <div class="product">
+            <img src="https://images.squarespace-cdn.com/content/v1/60f8644f48138724a9b44175/1662586387282-QH2G8KQ8DJ06C75VYPQ5/hiddenpictures.jpg" alt="Book Title 1">
+            <div class="product-title">Book Title 1</div>
+            <div class="product-description">An engaging novel by a bestselling author.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdiQGnbDC6iBhneXd5TfGyX2O-wG2IvvMb3w&s" alt="Book Title 2">
+            <div class="product-title">Book Title 2</div>
+            <div class="product-description">A thrilling mystery novel.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+        <div class="block">
+        <div class="product">
+            <img src="https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2024-05/julia-quinn-what-to-read-mc-2x1-240503-20c78f.jpg" alt="Book Title 3">
+            <div class="product-title">Book Title 3</div>
+            <div class="product-description">A comprehensive guide on personal finance.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVRgejErgGJVJF09q3AKu6DnmQgnuNNhfzjg&s" alt="Book Title 4">
+            <div class="product-title">Book Title 4</div>
+            <div class="product-description">An inspiring biography of a renowned individual.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+    </section>
+    
+    <section id="cosmetics" class="product-list">
+        <h2>Cosmetics</h2>
+        <div class="block">
+        <div class="product">
+            <img src="https://en-chatelaine.mblycdn.com/ench/resized/2019/12/1200x600/editors-favourite-red-lipstics-social.jpg" alt="Lipstick">
+            <div class="product-title">Lipstick</div>
+            <div class="product-description">Long-lasting and vibrant colors.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6R4ZYq6KOYkaWWIo836szp2RvxR7OesUMrg&s" alt="Foundation">
+            <div class="product-title">Foundation</div>
+            <div class="product-description">Smooth and flawless finish.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+        <div class="block">
+        <div class="product">
+            <img src="https://i.insider.com/6282bc3765d1770019e494a5?width=1200&format=jpeg" alt="Eyeshadow Palette">
+            <div class="product-title">Eyeshadow Palette</div>
+            <div class="product-description">Wide range of colors for any occasion.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhe03_14h9_rFHgxZHx1OpXJx5-8wUq0gYkQ&s" alt="Mascara">
+            <div class="product-title">Mascara</div>
+            <div class="product-description">Volumizing and lengthening mascara.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+    </section>
+    
+    <section id="toys" class="product-list">
+        <h2>Toys</h2>
+        <div class="block">
+        <div class="product">
+            <img src="https://i.ebayimg.com/images/g/tIkAAOSwNt9i9~Zy/s-l1200.webp" alt="Action Figure">
+            <div class="product-title">Action Figure</div>
+            <div class="product-description">Popular superhero action figure.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://alishoptz.com/cdn/shop/products/IMG_1159_1200x600_crop_center.jpg?v=1647247838" alt="Building Blocks">
+            <div class="product-title">Building Blocks</div>
+            <div class="product-description">Creative and educational building blocks.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+        <div class="block">
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNS2gRIMACP514wSoBGK9fqNNpjKw0YTzA&s" alt="Doll">
+            <div class="product-title">Doll</div>
+            <div class="product-description">Beautiful and detailed doll.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwz-PtM_kLWnIjjaODsCruv_2mH70PaVkJcg&s" alt="Puzzle">
+            <div class="product-title">Puzzle</div>
+            <div class="product-description">Challenging and fun puzzle for all ages.</div>
+            <a class="product-link" href="#">View Details</a>
+        </div></div>
+    </section>
+</body>
+</html>

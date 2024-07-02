@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+header {
+    background-color: #232f3e;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+header img{
+    width: 300px;
+    height: auto;
+}
+header h1{
+    margin-left: 20px;
+}
+.container {
+    display: flex;
+    margin: 20px;
+}
+
+.filters {
+    width: 20%;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters h2, .filters h3 {
+    margin: 0 0 10px;
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filters ul li {
+    margin: 10px 0;
+}
+
+.filters label {
+    margin-left: 5px;
+}
+
+.products {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 1rem;
+}
+
+.product-card {
+    width: calc(33.333% - 20px);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.product-card img {
+    width: 300px;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #b12704;
+}
+
+.product-card button {
+    padding: 10px 20px;
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: #ddb347;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-card:focus {
+    outline: none;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <img src="https://d24wuq6o951i2g.cloudfront.net/img/events/id/457/457835240/assets/62c07e92c37ff367b77dc7720850502f.amazon_logo_RGB_REV.png">
+        <h1>Product Listing replication</h1>
+    </header>
+    <div class="container">
+        <aside class="filters">
+            <h2>Filters</h2>
+            <div class="filter-category">
+                <h3>Category</h3>
+                <ul>
+                    <li><input type="checkbox" id="electronics"><label for="electronics"> Electronics</label></li>
+                    <li><input type="checkbox" id="clothing"><label for="clothing"> Clothing</label></li>
+                    <li><input type="checkbox" id="home-appliances"><label for="home-appliances"> Home Appliances</label></li>
+                </ul>
+            </div>
+            <div class="filter-price">
+                <h3>Price Range</h3>
+                <input type="range" min="0" max="500" step="10" value="250" id="priceRange">
+                <label for="priceRange">Up to $250</label>
+            </div>
+        </aside>
+        <main class="products">
+            <!-- Electronics -->
+            <div class="product-card" tabindex="0">
+                <img src="https://i.insider.com/5c49d67a2bdd7f791d633f74?width=1200&format=jpeg" alt="Product 1">
+                <h3>Smartphone</h3>
+                <p>$300.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://i0.wp.com/s3.ap-south-1.amazonaws.com/img.paisawapas/images/2023/08/24165204/image-1-15-1.jpg?fit=1200%2C600&ssl=1" alt="Product 2">
+                <h3>Laptop</h3>
+                <p>$800.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://asset20.ckassets.com/blog/wp-content/uploads/sites/5/2024/06/Logitech-G-Pro-X-1.jpg" alt="Product 3">
+                <h3>Headphones</h3>
+                <p>$150.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://s3b.cashify.in/gpro/uploads/2022/06/14221004/Boat-Xtend-Pitch-Black-variant_.jpeg" alt="Product 4">
+                <h3>Smartwatch</h3>
+                <p>$200.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Clothing -->
+            <div class="product-card" tabindex="0">
+                <img src="https://classyleatherbags.com/cdn/shop/files/custom_resized_e3cdecd1-c75f-4fe9-a144-7b0f453556c0_1200x600_crop_center.jpg?v=1683210373" alt="Product 5">
+                <h3>Jacket</h3>
+                <p>$120.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://frenchcrown.in/cdn/shop/articles/CREAM_SUIT_COMBINATIONS_WITH_A_SHIRT_AND_TIE.webp?crop=center&height=1200&v=1707734710&width=1200" alt="Product 6">
+                <h3>Dress</h3>
+                <p>$80.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/run-affordable-running-shoes-1676481206.jpg?crop=1xw:1xh;center,top&resize=1200:*" alt="Product 7">
+                <h3>Shoes</h3>
+                <p>$90.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://nidemama.com/cdn/shop/collections/caps-accessories-969346_1200x1200.jpg?v=1700657920" alt="Product 8">
+                <h3>Hat</h3>
+                <p>$30.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Home Appliances -->
+            <div class="product-card" tabindex="0">
+                <img src="https://images2.imgix.net/p4dbimg/p20436/images/190340.jpg?fit=fill&bg=FFFFFF&trim=color&trimtol=5&trimcolor=FFFFFF&w=1200&h=600&fm=pjpg&auto=format" alt="Product 9">
+                <h3>Microwave</h3>
+                <p>$200.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/best-blenders-2022-1645810109.jpg?crop=1.00xw:0.889xh;0,0&resize=1200:*" alt="Product 10">
+                <h3>Blender</h3>
+                <p>$60.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://images.prismic.io/kridovia/10a96abd-3df8-4598-bdf4-d6ecbb8d0b24_open-big-fridge-with-products-interior-kitchen_392895-25775.avif?auto=compress,format&rect=0,88,1060,530&w=1200&h=600" alt="Product 11">
+                <h3>Refrigerator</h3>
+                <p>$900.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card" tabindex="0">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdHw_qoxWAcLhhKmcSrl-Rd6K2Mwbqk9a13Q&s" alt="Product 12">
+                <h3>Vacuum Cleaner</h3>
+                <p>$150.00</p>
+                <button>Add to Cart</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
