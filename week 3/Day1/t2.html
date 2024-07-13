@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pet Age Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 400px;
+            background-color: #fff;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="number"], input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pet Age Calculator</h1>
+    <form id="ageForm">
+        <label for="petAge">Your pet's age (in human years):</label>
+        <input type="number" id="petAge" name="petAge" required>
+
+        <label for="conversionRate">Conversion rate (1 human year to how many pet years):</label>
+        <input type="number" id="conversionRate" name="conversionRate" required>
+
+        <label for="petType">Type of pet (e.g., cat, dog):</label>
+        <input type="text" id="petType" name="petType" required>
+
+        <button type="button" onclick="calculatePetAge()">Calculate Pet Age</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calculatePetAge() {
+            const petAge = document.getElementById('petAge').value;
+            const conversionRate = document.getElementById('conversionRate').value;
+            const petType = document.getElementById('petType').value;
+
+            const petAgeInYears = petAge * conversionRate;
+            const resultText = `Your ${petType} is ${petAgeInYears} years old in ${petType} years!`;
+
+            document.getElementById('result').innerText = resultText;
+        }
+
+        //calling the function 3 times mentioned in the doc in seperate function
+        calculatePetAgeDemo(3, 7, 'cat');
+        calculatePetAgeDemo(5, 6, 'dog');
+        calculatePetAgeDemo(2, 5, 'rabbit');//these values will disapear when u enter a value in form
+
+        function calculatePetAgeDemo(age, rate, type) {
+            const petAgeInYears = age * rate;
+            const resultText = `Your ${type} is ${petAgeInYears} years old in ${type} years!`;
+            const demoResult = document.createElement('p');
+            demoResult.innerText = resultText;
+            document.getElementById('result').appendChild(demoResult);
+        }
+    </script>
+</body>
+</html>

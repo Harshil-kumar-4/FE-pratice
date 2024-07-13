@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Distance Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function metersToFeet(meters) {
+            const feet = meters * 3.281;
+            return `${meters} meters is equal to ${feet.toFixed(2)} feet.`;
+        }
+
+        function feetToMeters(feet) {
+            const meters = feet * 0.3048;
+            return `${feet} feet is equal to ${meters.toFixed(2)} meters.`;
+        }
+
+        function displayMetersToFeet() {
+            const meters = parseFloat(document.getElementById('meters').value);
+            const result = metersToFeet(meters);
+            document.getElementById('metersToFeetResult').textContent = result;
+        }
+
+        function displayFeetToMeters() {
+            const feet = parseFloat(document.getElementById('feet').value);
+            const result = feetToMeters(feet);
+            document.getElementById('feetToMetersResult').textContent = result;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>The Distance Converter</h1>
+        <input type="number" id="meters" placeholder="Enter distance in meters" required>
+        <button onclick="displayMetersToFeet()">Convert to Feet</button>
+        <div id="metersToFeetResult" class="result"></div>
+        <input type="number" id="feet" placeholder="Enter distance in feet" required>
+        <button onclick="displayFeetToMeters()">Convert to Meters</button>
+        <div id="feetToMetersResult" class="result"></div>
+    </div>
+</body>
+</html>

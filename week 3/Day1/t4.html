@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coffee Consumption Estimator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Coffee Consumption Estimator</h1>
+        <input type="number" id="age" placeholder="Enter your age" required>
+        <input type="number" step="0.1" id="cupsPerDay" placeholder="Enter cups per day" required>
+        <button onclick="displayResult()">Calculate Coffee Supply</button>
+        <div id="result" class="result"></div>
+    </div>
+</body>
+<script>
+    const maxAge = 100;
+
+    function calculateCoffeeSupply(age, cupsPerDay) {
+        const yearsLeft = maxAge - age;
+        const totalCups = Math.round(yearsLeft * cupsPerDay * 365);
+        return `You will need ${totalCups} cups of coffee to keep you awake until the age of ${maxAge}.`;
+    }
+
+    function displayResult() {
+        const age = parseFloat(document.getElementById('age').value);
+        const cupsPerDay = parseFloat(document.getElementById('cupsPerDay').value);
+        const result = calculateCoffeeSupply(age, cupsPerDay);
+        document.getElementById('result').textContent = result;
+    }
+
+    function runSampleCalculations() {
+        console.log(calculateCoffeeSupply(25, 3));
+        console.log(calculateCoffeeSupply(40, 2.5));
+        console.log(calculateCoffeeSupply(30, 4));
+    }
+
+    window.onload = runSampleCalculations;
+</script>
+</html>

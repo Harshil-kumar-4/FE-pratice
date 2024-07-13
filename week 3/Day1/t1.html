@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fortune Teller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 300px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="number"], input[type="text"] {
+            width: 80%;
+            height: 20px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        button[type="button"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="button"]:hover {
+            background-color: #3e8e41;
+        }
+        
+        #fortuneOutput {
+            font-size: 18px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 20px;
+            transition: opacity 0.5s;
+        }
+        
+        #fortuneOutput.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Fortune Teller</h1>
+    <form id="fortuneForm">
+        <label for="children">Number of children:</label>
+        <input type="number" id="children" name="children" required><br><br>
+
+        <label for="partner">Name of future partner:</label>
+        <input type="text" id="partner" name="partner" required><br><br>
+
+        <label for="location">Place you'll live in:</label>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="job">Future job title:</label>
+        <input type="text" id="job" name="job" required><br><br>
+
+        <button type="button" onclick="tellFortune()">Tell Fortune</button>
+    </form>
+    </div>
+    <div>
+    <p id="fortuneOutput"></p>
+    </div>
+    <script>
+        function tellFortune() {
+            let children = document.getElementById('children').value;
+            let partner = document.getElementById('partner').value;
+            let location = document.getElementById('location').value;
+            let job = document.getElementById('job').value;
+
+            let fortune = `You will be a ${job} in ${location}, and married with ${partner} with ${children} kids.`;
+            let output = document.getElementById('fortuneOutput');
+            output.innerText = fortune;
+            output.classList.add('show');
+        }
+    </script>
+</body>
+</html>
