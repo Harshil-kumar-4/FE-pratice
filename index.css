@@ -14,16 +14,8 @@ body{
     width: 50px;
     height: auto;
 }
-@keyframes sfl{
-    form{
-        transform: translateX(-300px);
-    }
-    to{
-        transform: translate(0px);
-    }
-}
+
 .navbar{
-    animation: sfl 1s ease-in;
     z-index: 1000;
     left: 0;
     position: fixed;
@@ -41,7 +33,19 @@ body{
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: slide-right 0.5s ease-in-out;
 }
+
+
+@keyframes slide-right {
+    0% {
+        transform: translate(-100%, 0);
+    }
+    100%{
+        transform: translate(0, 0);
+    }
+}
+
 .ul1 a{
     text-decoration: none;
     margin-left: 10px;
@@ -64,7 +68,19 @@ body{
     border-radius: 100%;
     width: auto;
     height: 400px;
+    animation: slide-left 0.5s ease-in-out;
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.5);
 }
+
+@keyframes slide-left {
+    0% {
+        transform: translate(200%, 0);
+    }
+    100%{
+        transform: translate(0, 0);
+    }
+}
+
 .profile div span{
     margin-left: 40px;
     font-size: 30px;
@@ -234,13 +250,13 @@ body{
     cursor: normal;
     color: white;
 }
+/* contact */
 .mail img{
-    margin-left: 30px;
-    width: 200px;
+    width: 40px;
     height: auto;
 }
 .tel img{
-    width: 250px;
+    width: 50px;
     height: auto;
 }
 .mail,.tel{
