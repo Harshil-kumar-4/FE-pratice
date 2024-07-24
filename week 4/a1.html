@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #00274a;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: rgb(193, 174, 137);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #7b7b7b;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            animation: fadeIn 1s ease-in;
+        }
+        .employee-form, .actions, .employee-list {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgb(248, 239, 221);
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out
+        }
+        .employee-form:hover, .actions:hover, .employee-list:hover {
+            background-color: rgb();
+            box-shadow: inset 0 0 40px rgb(255, 197, 90);;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #000000;
+            background-color: #00d0ff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #92dbf6;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);;
+        }
+
+        .actions{
+            display: flex;
+            justify-content: space-between;
+        }
+        .actions button {
+            border-radius: 15px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        @keyframes fadeIn {
+            from {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Management System</h1>
+
+        <div class="employee-form">
+            <h2>Add Employee</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+            <label for="department">Department:</label>
+            <input type="text" id="department" required>
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" required>
+            <center><button onclick="addEmployee()">Add Employee</button></center>
+        </div>
+
+        <div class="actions">
+            <button onclick="calculateAverageSalary()">Calculate Average Salary</button>
+            <button onclick="findEmployeesInDepartment()">Find Employees in Department</button>
+            <button onclick="increaseSalaries()">Increase Salaries</button>
+            <button onclick="sortEmployeesByAge()">Sort Employees by Age</button>
+        </div>
+
+        <div class="employee-list">
+            <h2>Employee List</h2>
+            <ul id="employeeList"></ul>
+        </div>
+    </div>
+
+    <script>
+        const employees = [];
+
+        function addEmployee() {
+            const name = document.getElementById('name').value;
+            const age = parseInt(document.getElementById('age').value);
+            const department = document.getElementById('department').value;
+            const salary = parseFloat(document.getElementById('salary').value);
+
+            const employee = { name, age, department, salary };
+            employees.push(employee);
+            displayEmployees();
+        }
+
+        function displayEmployees() {
+            const employeeList = document.getElementById('employeeList');
+            employeeList.innerHTML = '';
+            employees.forEach((employee, index) => {
+                const li = document.createElement('li');
+                li.textContent = `Name: ${employee.name}, Age: ${employee.age}, Department: ${employee.department}, Salary: ${employee.salary}`;
+                employeeList.appendChild(li);
+            });
+        }
+
+        function calculateAverageSalary() {
+            const totalSalary = employees.reduce((sum, employee) => sum + employee.salary, 0);
+            const averageSalary = totalSalary / employees.length;
+            alert(`Average Salary: ${averageSalary.toFixed(2)}`);
+        }
+
+        function findEmployeesInDepartment() {
+            const department = prompt('Enter department name:');
+            const filteredEmployees = employees.filter(employee => employee.department === department);
+            displayEmployees(filteredEmployees);
+        }
+
+        function increaseSalaries() {
+            const percentage = parseFloat(prompt('Enter percentage increase:'));
+            employees.forEach(employee => {
+                employee.salary += employee.salary * (percentage / 100);
+            });
+            displayEmployees();
+        }
+
+        function sortEmployeesByAge() {
+            employees.sort((a, b) => a.age - b.age);
+            displayEmployees();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #222831;
+            color: #EEEEEE;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #31363F;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .clock {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        .controls button {
+            background-color: #76ABAE;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+        .controls button:hover {
+            background-color: #5b8c8d;
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .controls button:active {
+            transform: scale(0.95);
+        }
+        .settings {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .settings label {
+            margin: 10px 0;
+        }
+        .settings input, .settings select {
+            background-color: #222831;
+            color: #EEEEEE;
+            border: 1px solid #76ABAE;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 200px;
+        }
+        .format-switch {
+            margin: 20px 0;
+        }
+        .alarm-ring {
+            background-color: #76ABAE;
+            color: #222831;
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            animation: ringAnimation 1s infinite;
+        }
+        .alarm-ring.shake {
+            animation: shake 0.5s infinite;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes ringAnimation {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+        @keyframes shake {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            25% { transform: translate(-50%, -50%) rotate(3deg); }
+            50% { transform: translate(-50%, -50%) rotate(0deg); }
+            75% { transform: translate(-50%, -50%) rotate(-3deg); }
+            100% { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h1>Alarm Clock</h1>
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="controls">
+            <button onclick="showAlarmSettings()">Set Alarm</button>
+            <button onclick="showTimerSettings()">Set Timer</button>
+        </div>
+        <div class="settings" id="settings"></div>
+        <div class="format-switch">
+            <button onclick="toggleFormat()">Switch to 12-hour format</button>
+        </div>
+        <div class="settings">
+            <label for="timezone">Set Timezone:</label>
+            <select id="timezone">
+                <option value="-12">GMT-12:00 (Baker Island)</option>
+                <option value="-8">GMT-08:00 (Los Angeles)</option>
+                <option value="-5">GMT-05:00 (New York)</option>
+                <option value="0">GMT+00:00 (London)</option>
+                <option value="1">GMT+01:00 (Berlin)</option>
+                <option value="3">GMT+03:00 (Moscow)</option>
+                <option value="5.5" selected>GMT+05:30 (New Delhi)</option>
+                <option value="8">GMT+08:00 (Beijing)</option>
+                <option value="9">GMT+09:00 (Tokyo)</option>
+                <option value="10">GMT+10:00 (Sydney)</option>
+            </select>
+            <button onclick="setTimezone()">Set Timezone</button>
+        </div>
+        <div class="alarm-ring" id="alarmRing">
+            Alarm is ringing!
+            <div>
+                <button onclick="dismissAlarm()">Dismiss</button>
+                <button onclick="snoozeAlarm()">Snooze</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let alarmTime = null;
+        let timerTime = null;
+        let timerInterval = null;
+        let timezoneOffset = 5.5;
+        let is24HourFormat = true;
+
+        function updateClock() {
+            const now = new Date(new Date().getTime() + timezoneOffset * 3600 * 1000);
+            let hours = now.getUTCHours();
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+
+            if (!is24HourFormat) {
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+                document.getElementById('clock').textContent = `${String(hours).padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+            } else {
+                document.getElementById('clock').textContent = `${String(hours).padStart(2, '0')}:${minutes}:${seconds}`;
+            }
+
+            if (alarmTime && `${String(hours).padStart(2, '0')}:${minutes}:${seconds}` === alarmTime) {
+                document.getElementById('alarmRing').style.display = 'block';
+                document.getElementById('mainContainer').classList.add('shake');
+            }
+
+            if (timerTime !== null) {
+                timerTime--;
+                if (timerTime <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('alarmRing').style.display = 'block';
+                    document.getElementById('mainContainer').classList.add('shake');
+                    timerTime = null;
+                }
+            }
+        }
+
+        function showAlarmSettings() {
+            document.getElementById('settings').innerHTML = `
+                <label for="alarm">Set Alarm (HH:MM:SS):</label>
+                <input type="time" id="alarm" required>
+                <button onclick="setAlarm()">Set Alarm</button>
+            `;
+        }
+
+        function setAlarm() {
+            const alarmInput = document.getElementById('alarm').value;
+            if (alarmInput) {
+                alarmTime = alarmInput + ':00';
+                alert(`Alarm set for ${alarmTime}`);
+            }
+        }
+
+        function showTimerSettings() {
+            document.getElementById('settings').innerHTML = `
+                <label for="timer">Set Timer (seconds):</label>
+                <input type="number" id="timer" required>
+                <button onclick="setTimer()">Set Timer</button>
+            `;
+        }
+
+        function setTimer() {
+            const timerInput = document.getElementById('timer').value;
+            if (timerInput) {
+                timerTime = parseInt(timerInput, 10);
+                clearInterval(timerInterval);
+                timerInterval = setInterval(updateClock, 1000);
+                alert(`Timer set for ${timerTime} seconds`);
+            }
+        }
+
+        function setTimezone() {
+            const timezoneInput = document.getElementById('timezone').value;
+            timezoneOffset = parseFloat(timezoneInput);
+            alert(`Timezone set to GMT${timezoneOffset >= 0 ? '+' : ''}${timezoneOffset}`);
+        }
+
+        function toggleFormat() {
+            is24HourFormat = !is24HourFormat;
+            document.querySelector('.format-switch button').textContent = is24HourFormat ? 'Switch to 12-hour format' : 'Switch to 24-hour format';
+            updateClock();
+        }
+
+        function dismissAlarm() {
+            document.getElementById('alarmRing').style.display = 'none';
+            document.getElementById('mainContainer').classList.remove('shake');
+            alarmTime = null;
+        }
+
+        function snoozeAlarm() {
+            const snoozeTime = parseInt(prompt("Enter snooze time in minutes:"), 10) || 5;
+            const now = new Date(new Date().getTime() + timezoneOffset * 3600 * 1000);
+            now.setMinutes(now.getMinutes() + snoozeTime);
+            alarmTime = `${String(now.getUTCHours()).padStart(2, '0')}:${String(now.getUTCMinutes()).padStart(2, '0')}:00`;
+            document.getElementById('alarmRing').style.display = 'none';
+            document.getElementById('mainContainer').classList.remove('shake');
+            alert(`Alarm snoozed for ${snoozeTime} minutes`);
+        }
+
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
